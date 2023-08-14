@@ -14,8 +14,11 @@ function App() {
   const [allTodos, setAllTodos] = useState<Todo[]>([]);
   useEffect(() => {
     let localTodos: parseType = localStorage.getItem("todos");
-    setAllTodos(JSON.parse(localTodos as string)); // The as keyword is how we Typecast in TypeScript
-    console.log("First useEffect Runnng ");
+    if(localTodos){
+      setAllTodos(JSON.parse(localTodos as string)); // The as keyword is how we Typecast in TypeScript
+      console.log("First useEffect Runnng ");
+
+    }
   }, []);
 
   return (

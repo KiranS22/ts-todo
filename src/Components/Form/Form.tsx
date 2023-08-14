@@ -17,8 +17,10 @@ const Form = ({ allTodos, setAllTodos }: FormProps) => {
   const submitTodo = (e: React.SyntheticEvent): void => {
     console.log("Running");
     e.preventDefault();
-    setAllTodos([...allTodos, todo]);
-    localStorage.setItem("todos", JSON.stringify([...allTodos, todo]));
+    let todoArray = [...allTodos, {...todo, id: allTodos.length + 1} ]
+    setAllTodos(todoArray);
+
+    localStorage.setItem("todos", JSON.stringify(todoArray));
     setTodo({ title: "", description: "" });
   };
   return (

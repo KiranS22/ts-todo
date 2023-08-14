@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 
 interface Todo {
-  id?:number
+  id?: number;
   title: string;
   description: string;
 }
@@ -13,14 +13,25 @@ interface FormProps {
 }
 
 const List = ({ allTodos, setAllTodos }: FormProps) => {
+  const deleteTodo = (id: number | undefined) => {
+    console.log("id of todo", id);
+    const updatedTodos = allTodos.filter((todo: Todo) => todo.id !== id);
+    setAllTodos(updatedTodos);
 
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
+  };
   return (
     <>
-      {allTodos.map((todo: Todo, index: number) => {
+      {allTodos.map((todo: Todo) => {
+        console.log(todo);
+
         return (
-          <div>
+          <div key={todo.id}>
             <h2>{todo.title}</h2>
             <p>{todo.description}</p>
+            <button type="button" onClick={() => deleteTodo(todo.id)}>
+              Delete
+            </button>
           </div>
         );
       })}
