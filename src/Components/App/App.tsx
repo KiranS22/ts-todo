@@ -9,17 +9,15 @@ interface Todo {
   description: string;
 }
 
-type parseType = string | null
+type parseType = string | null;
 function App() {
   const [allTodos, setAllTodos] = useState<Todo[]>([]);
   useEffect(() => {
-  let localTodos: parseType =  localStorage.getItem("todos")
-console.log(localTodos);
+    let localTodos: parseType = localStorage.getItem("todos");
+    setAllTodos(JSON.parse(localTodos as string)); // The as keyword is how we Typecast in TypeScript
+    console.log("First useEffect Runnng ");
+  }, []);
 
-    }, []);
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(allTodos));
-  }, [allTodos]);
   return (
     <div className="App">
       <Form allTodos={allTodos} setAllTodos={setAllTodos} />

@@ -18,6 +18,7 @@ const Form = ({ allTodos, setAllTodos }: FormProps) => {
     console.log("Running");
     e.preventDefault();
     setAllTodos([...allTodos, todo]);
+    localStorage.setItem("todos", JSON.stringify([...allTodos, todo]));
     setTodo({ title: "", description: "" });
   };
   return (
