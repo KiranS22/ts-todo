@@ -1,16 +1,7 @@
 import React from "react";
+import { FormProps, Todo } from "../../interfaces/interfaces";
 
 
-interface Todo {
-  id?: number;
-  title: string;
-  description: string;
-}
-
-interface FormProps {
-  setAllTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
-  allTodos: Todo[];
-}
 
 const List = ({ allTodos, setAllTodos }: FormProps) => {
   const deleteTodo = (id: number | undefined) => {

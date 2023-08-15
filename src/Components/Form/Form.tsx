@@ -1,16 +1,6 @@
 import React from "react";
 import { useState } from "react";
-
-interface Todo {
-  id?: number;
-  title: string;
-  description: string;
-}
-
-interface FormProps {
-  setAllTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
-  allTodos: Todo[];
-}
+import { FormProps, Todo } from "../../interfaces/interfaces";
 const Form = ({ allTodos, setAllTodos }: FormProps) => {
   const [todo, setTodo] = useState<Todo>({ title: "", description: "" });
 

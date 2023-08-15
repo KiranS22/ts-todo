@@ -3,13 +3,10 @@ import { useState, useEffect } from "react";
 import "./../../Resources/App.css";
 import Form from "../Form/Form";
 import List from "../List/List";
-interface Todo {
-  id?: number;
-  title: string;
-  description: string;
-}
+import { Todo } from "../../interfaces/interfaces";
+import { parseType } from "../../types/types";
 
-type parseType = string | null;
+
 function App() {
   const [allTodos, setAllTodos] = useState<Todo[]>([]);
   useEffect(() => {
