@@ -1,7 +1,13 @@
-import React from "react";
-import { EditModalProps } from "../../interfaces/interfaces";
+import React, { useState } from "react";
+import { EditModalProps, Todo } from "../../interfaces/interfaces";
 
-const EditTodoModal = ({ closeModal, setToggleModal }: EditModalProps) => {
+const EditTodoModal = ({
+  closeModal,
+  setToggleModal,
+  setAllTodos,
+  editedTodo,
+  setEditedTodo,
+}: EditModalProps) => {
   return (
     <div className="modal-dialog">
       <div className="modal-content">
@@ -19,7 +25,14 @@ const EditTodoModal = ({ closeModal, setToggleModal }: EditModalProps) => {
           ></button>
         </div>
         <div className="modal-body">
-          <div></div>
+          <div>
+            <input type="text" name="title" value={editedTodo.title} />
+            <input
+              type="text"
+              name="description"
+              value={editedTodo.description}
+            />
+          </div>
         </div>
         <div className="modal-footer">
           <button

@@ -6,6 +6,8 @@ import { ToggleModal } from "../../types/types";
 
 const List = ({ allTodos, setAllTodos }: FormProps) => {
   const [toggleModal, setToggleModal] = useState<ToggleModal>(false);
+  const [editedTodo, setEditedTodo] = useState<Todo>({ title: "", description: "" });
+
   const deleteTodo = (id: number | undefined) => {
     console.log("id of todo", id);
     const updatedTodos = allTodos.filter((todo: Todo) => todo.id !== id);
@@ -13,12 +15,16 @@ const List = ({ allTodos, setAllTodos }: FormProps) => {
 
     localStorage.setItem("todos", JSON.stringify(updatedTodos));
   };
-  const openEditModal = (): void => {
+
+  const openEditModal = (todo: Todo): void => {
     setToggleModal(true);
+    setEditedTodo({ ...todo }); // Copy the properties of the todo
   };
-  const closeModal = (): void => {
+
+  const closeEditModal = (): void => {
     setToggleModal(false);
   };
+
   return (
     <>
       {allTodos.map((todo: Todo) => (
@@ -35,9 +41,12 @@ const List = ({ allTodos, setAllTodos }: FormProps) => {
       ))}
       {toggleModal ? (
         <EditTodoModal
-          closeModal={closeModal}
+          closeModal={closeEditModal}
           setToggleModal={setToggleModal}
-          toggleModal={toggleModal}
+          setAllTodos={setAllTodos}
+          allTodos={allTodos}
+          editedTodo={editedTodo} // Pass the editedTodo to the modal
+          setEditedTodo={setEditedTodo} // Pass the setEditedTodo function to the modal
         />
       ) : null}
     </>

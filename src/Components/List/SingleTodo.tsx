@@ -21,7 +21,7 @@ const SingleTodo = ({
         type="button"
         onClick={() => {
           setToggleModal(true);
-          openEditModal();
+          openEditModal(todo);
         }}
       >
         Edit

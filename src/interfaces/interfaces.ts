@@ -18,13 +18,14 @@ export interface SingleTodoProps {
   allTodos: Todo[];
   toggleModal: ToggleModal;
   setToggleModal: React.Dispatch<React.SetStateAction<ToggleModal>>;
-  openEditModal: () => void
+  openEditModal: (todo: Todo) => void;
 }
 
 export interface EditModalProps {
-  closeModal: ()=> void
-  setToggleModal: React.Dispatch<React.SetStateAction<ToggleModal>>
-  toggleModal: ToggleModal;
-
-
+  closeModal: () => void;
+  setToggleModal: React.Dispatch<React.SetStateAction<ToggleModal>>;
+  setAllTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  allTodos: Todo[];
+  editedTodo: Todo;
+  setEditedTodo:React.Dispatch<React.SetStateAction<Todo>>
 }
