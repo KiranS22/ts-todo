@@ -6,13 +6,17 @@ const Form = ({ allTodos, setAllTodos }: FormProps) => {
   const [todo, setTodo] = useState<Todo>({ title: "", description: "" });
 
   const submitTodo = (e: React.SyntheticEvent): void => {
-
     e.preventDefault();
-    let todoArray = [...allTodos, {...todo, id: allTodos.length + 1} ]
+    let todoArray = [...allTodos, { ...todo, id: allTodos.length + 1 }];
     setAllTodos(todoArray);
 
     localStorage.setItem("todos", JSON.stringify(todoArray));
     setTodo({ title: "", description: "" });
+  };
+
+  const deleteAllTasks = (): void => {
+    localStorage.clear();
+    setAllTodos([]);
   };
   return (
     <>
@@ -38,6 +42,7 @@ const Form = ({ allTodos, setAllTodos }: FormProps) => {
           }
         />
         <button type="submit"> Add Todo</button>
+        <button onClick={deleteAllTasks}>Delete All Tasks</button>
       </form>
     </>
   );
