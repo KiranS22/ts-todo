@@ -1,6 +1,7 @@
 import React from "react";
 import { FormProps, Todo } from "../../interfaces/interfaces";
 import SingleTodo from "./SingleTodo";
+import EditTodoModal from "../UpdatedTodoModal/EditTodoModal";
 
 const List = ({ allTodos, setAllTodos }: FormProps) => {
   const deleteTodo = (id: number | undefined) => {
@@ -11,19 +12,15 @@ const List = ({ allTodos, setAllTodos }: FormProps) => {
     localStorage.setItem("todos", JSON.stringify(updatedTodos));
   };
 
-const SubmitUpdatedTodoForm = ()=>{
-  
-}
+  const SubmitUpdatedTodoForm = () => {};
 
   return (
     <>
       {allTodos.map((todo: Todo) => (
-        <SingleTodo
-          todo={todo}
-          deleteTodo={deleteTodo}
-
-        />
+        <SingleTodo todo={todo} deleteTodo={deleteTodo} key={todo.id} />
       ))}
+
+      <EditTodoModal />
     </>
   );
 };

@@ -5,7 +5,7 @@ import Form from "../Form/Form";
 import List from "../List/List";
 import { Todo } from "../../interfaces/interfaces";
 import { parseType } from "../../types/types";
-import EditTodoModal from "../UpdatedTodoModal/EditTodoModal";
+
 
 function App() {
   const [allTodos, setAllTodos] = useState<Todo[]>([]);
@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       <Form allTodos={allTodos} setAllTodos={setAllTodos} />
       <List allTodos={allTodos} setAllTodos={setAllTodos} />
-      <EditTodoModal/>
+      
     </div>
   );
 }
