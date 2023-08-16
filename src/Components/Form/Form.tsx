@@ -1,11 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import { FormProps, Todo } from "../../interfaces/interfaces";
+import { toBeRequired } from "@testing-library/jest-dom/matchers";
 const Form = ({ allTodos, setAllTodos }: FormProps) => {
   const [todo, setTodo] = useState<Todo>({ title: "", description: "" });
 
   const submitTodo = (e: React.SyntheticEvent): void => {
-    console.log("Running");
+
     e.preventDefault();
     let todoArray = [...allTodos, {...todo, id: allTodos.length + 1} ]
     setAllTodos(todoArray);
@@ -20,6 +21,7 @@ const Form = ({ allTodos, setAllTodos }: FormProps) => {
           type="text"
           placeholder="Title"
           value={todo.title}
+          required
           onChange={(e: React.SyntheticEvent) =>
             setTodo({ ...todo, title: (e.target as HTMLInputElement).value })
           }

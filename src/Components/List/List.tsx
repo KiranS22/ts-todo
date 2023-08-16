@@ -1,7 +1,6 @@
 import React from "react";
 import { FormProps, Todo } from "../../interfaces/interfaces";
-
-
+import SingleTodo from "./SingleTodo";
 
 const List = ({ allTodos, setAllTodos }: FormProps) => {
   const deleteTodo = (id: number | undefined) => {
@@ -12,47 +11,19 @@ const List = ({ allTodos, setAllTodos }: FormProps) => {
     localStorage.setItem("todos", JSON.stringify(updatedTodos));
   };
 
-  const editTodoTitle = (id: number | undefined, e: React.SyntheticEvent) => {
-    const editedTodos = allTodos.map((todo: Todo) => {
-      if (todo.id === id) {
-        return { ...todo, title: (e.target as HTMLInputElement).value };
-      }
-      return todo;
-    });
+const SubmitUpdatedTodoForm = ()=>{
+  
+}
 
-    localStorage.setItem("todos", JSON.stringify(editedTodos));
-setAllTodos(editedTodos)
-
-  };
-
-  const editTodoDescrription = (id: number | undefined, e: React.SyntheticEvent) => {
-    const editedTodos = allTodos.map((todo: Todo) => {
-      if (todo.id === id) {
-        return { ...todo, description: (e.target as HTMLInputElement).value };
-      }
-      return todo;
-    });
-
-    localStorage.setItem("todos", JSON.stringify(editedTodos));
-setAllTodos(editedTodos)
-
-  };
   return (
     <>
-      {allTodos.map((todo: Todo) => {
+      {allTodos.map((todo: Todo) => (
+        <SingleTodo
+          todo={todo}
+          deleteTodo={deleteTodo}
 
-
-        return (
-          <div key={todo.id}>
-            <h2>{todo.title}</h2>
-            <p>{todo.description}</p>
-            <button type="button" onClick={() => deleteTodo(todo.id)}>
-              Delete
-            </button>
-            <button type="button">Edit</button>
-          </div>
-        );
-      })}
+        />
+      ))}
     </>
   );
 };

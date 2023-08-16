@@ -8,3 +8,10 @@ export interface FormProps {
   setAllTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
   allTodos: Todo[];
 }
+
+export interface Listprops {
+  deleteTodo: (id: number | undefined) => void;
+  todo: Todo
+
+
+}
