@@ -7,7 +7,29 @@ const EditTodoModal = ({
   setAllTodos,
   editedTodo,
   setEditedTodo,
+  allTodos,
 }: EditModalProps) => {
+  const submitEditedTodo = (
+    e: React.SyntheticEvent,
+    id: number | undefined
+  ): void => {
+    e.preventDefault();
+
+    const updatedTodos = allTodos.map((todo: Todo) =>
+      todo.id === id
+        ? {
+            ...todo,
+            title: editedTodo.title,
+            description: editedTodo.description,
+          }
+        : todo
+    );
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
+    setAllTodos(updatedTodos);
+    setToggleModal(false);
+    closeModal();
+  };
+
   return (
     <div className="modal-dialog">
       <div className="modal-content">
@@ -26,11 +48,27 @@ const EditTodoModal = ({
         </div>
         <div className="modal-body">
           <div>
-            <input type="text" name="title" value={editedTodo.title} />
+            <input
+              type="text"
+              name="title"
+              value={editedTodo.title}
+              onChange={(e) =>
+                setEditedTodo({
+                  ...editedTodo,
+                  title: (e.target as HTMLInputElement).value,
+                })
+              }
+            />
             <input
               type="text"
               name="description"
               value={editedTodo.description}
+              onChange={(e) =>
+                setEditedTodo({
+                  ...editedTodo,
+                  description: (e.target as HTMLInputElement).value,
+                })
+              }
             />
           </div>
         </div>
@@ -46,7 +84,11 @@ const EditTodoModal = ({
           >
             Close
           </button>
-          <button type="button" className="btn btn-primary">
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={(e) => submitEditedTodo(e, editedTodo.id)}
+          >
             Save changes
           </button>
         </div>

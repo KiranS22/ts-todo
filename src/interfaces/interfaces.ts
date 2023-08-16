@@ -28,4 +28,5 @@ export interface EditModalProps {
   allTodos: Todo[];
   editedTodo: Todo;
   setEditedTodo:React.Dispatch<React.SetStateAction<Todo>>
+
 }

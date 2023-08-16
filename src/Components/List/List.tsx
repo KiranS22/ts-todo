@@ -18,7 +18,7 @@ const List = ({ allTodos, setAllTodos }: FormProps) => {
 
   const openEditModal = (todo: Todo): void => {
     setToggleModal(true);
-    setEditedTodo({ ...todo }); // Copy the properties of the todo
+    setEditedTodo({ ...todo });
   };
 
   const closeEditModal = (): void => {
@@ -45,8 +45,8 @@ const List = ({ allTodos, setAllTodos }: FormProps) => {
           setToggleModal={setToggleModal}
           setAllTodos={setAllTodos}
           allTodos={allTodos}
-          editedTodo={editedTodo} // Pass the editedTodo to the modal
-          setEditedTodo={setEditedTodo} // Pass the setEditedTodo function to the modal
+          editedTodo={editedTodo}   
+          setEditedTodo={setEditedTodo}
         />
       ) : null}
     </>
