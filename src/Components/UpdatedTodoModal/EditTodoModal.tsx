@@ -1,6 +1,7 @@
 import React from "react";
+import { EditModalProps } from "../../interfaces/interfaces";
 
-const EditTodoModal = () => {
+const EditTodoModal = ({ closeModal, setToggleModal }: EditModalProps) => {
   return (
     <div className="modal-dialog">
       <div className="modal-content">
@@ -11,18 +12,24 @@ const EditTodoModal = () => {
             className="btn-close"
             data-bs-dismiss="modal"
             aria-label="Close"
+            onClick={() => {
+              setToggleModal(false);
+              closeModal();
+            }}
           ></button>
         </div>
         <div className="modal-body">
-          <div>
-            
-          </div>
+          <div></div>
         </div>
         <div className="modal-footer">
           <button
             type="button"
             className="btn btn-secondary"
             data-bs-dismiss="modal"
+            onClick={() => {
+              setToggleModal(false);
+              closeModal();
+            }}
           >
             Close
           </button>
