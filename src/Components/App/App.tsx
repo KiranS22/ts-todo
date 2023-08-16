@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import "./../../Resources/CSS/App.css";
+import "./../../Resources/CSS/App//App.css";
 import Form from "../Form/Form";
 import List from "../List/List";
 import { Todo } from "../../interfaces/interfaces";
@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       <Form allTodos={allTodos} setAllTodos={setAllTodos} />
       <List allTodos={allTodos} setAllTodos={setAllTodos} />
-      
+
     </div>
   );
 }
