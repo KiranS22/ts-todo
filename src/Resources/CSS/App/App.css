@@ -1,1 +1,33 @@
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
 /* Globals */
+:root {
+  --main-bg: #d3d3d3;
+  --title-color: #0592ef;
+  --title-font: font-family: 'Oswald', sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Homepage Styling */
+body {
+  background-color: var(--main-bg);
+}
+.main-title {
+  color: var(--title-color);
+  text-align: center;
+  font-weight: 600;
+  font-family: var(--title-font);
+  font-size: 2.5rem;
+}
+
+/*  CSS used to aid with Styling  */
+
+.custom-border {
+  border: 2px solid red;
+}

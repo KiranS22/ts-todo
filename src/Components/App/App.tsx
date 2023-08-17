@@ -6,7 +6,6 @@ import List from "../List/List";
 import { Todo } from "../../interfaces/interfaces";
 import { parseType } from "../../types/types";
 
-
 function App() {
   const [allTodos, setAllTodos] = useState<Todo[]>([]);
   useEffect(() => {
@@ -18,10 +17,10 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App container">
+      <h1 className="main-title"> ChoreChecker</h1>
       <Form allTodos={allTodos} setAllTodos={setAllTodos} />
       <List allTodos={allTodos} setAllTodos={setAllTodos} />
-
     </div>
   );
 }

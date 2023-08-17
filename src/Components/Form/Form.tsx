@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { FormProps, Todo } from "../../interfaces/interfaces";
+
 const Form = ({ allTodos, setAllTodos }: FormProps) => {
   const [todo, setTodo] = useState<Todo>({ title: "", description: "" });
 
@@ -17,10 +18,16 @@ const Form = ({ allTodos, setAllTodos }: FormProps) => {
     localStorage.clear();
     setAllTodos([]);
   };
+
   return (
-    <>
-      <form onSubmit={submitTodo}>
+    <div className="d-flex mt-4 custom-border justify-content-between align-items-center">
+      <form onSubmit={submitTodo} className="d-flex">
+        <label htmlFor="task-title" className="me-2">
+          Task Title:
+        </label>
         <input
+          id="task-title"
+          className="me-4 rounded"
           type="text"
           placeholder="Title"
           value={todo.title}
@@ -29,8 +36,13 @@ const Form = ({ allTodos, setAllTodos }: FormProps) => {
             setTodo({ ...todo, title: (e.target as HTMLInputElement).value })
           }
         />
+        <label htmlFor="task-description" className="me-2">
+          Task Description:
+        </label>
         <input
+          id="task-description"
           type="text"
+          className="me-4 rounded"
           placeholder="Description"
           value={todo.description}
           onChange={(e: React.SyntheticEvent) =>
@@ -40,10 +52,17 @@ const Form = ({ allTodos, setAllTodos }: FormProps) => {
             })
           }
         />
-        <button type="submit"> Add Todo</button>
-        <button onClick={deleteAllTasks}>Delete All Tasks</button>
+
+        <button type="submit" className="me-4 btn btn-info text-white">
+          {" "}
+          Add Todo
+        </button>
       </form>
-    </>
+
+      <button className="btn btn-danger" onClick={deleteAllTasks}>
+        Delete All Tasks
+      </button>
+    </div>
   );
 };
 
