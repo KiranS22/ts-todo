@@ -12,12 +12,12 @@ const SingleTodo = ({
 }: SingleTodoProps) => {
   return (
     <div className="d-flex justify-content-between">
-      <div className="w-25 custom-border">
+      <div className="w-25">
         {" "}
-        <h2>{todo.title}</h2>
-        <p>{todo.description}</p>
+        <h4 className="todo-title">{todo.title}</h4>
+        <p className="todo-desc">{todo.description}</p>
       </div>
-      <div className="w-25 custom-border">
+      <div className="task-card-button-container  px-4">
         <button
           className="btn btn-danger"
           type="button"
