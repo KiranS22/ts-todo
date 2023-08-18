@@ -11,21 +11,31 @@ const SingleTodo = ({
   openEditModal,
 }: SingleTodoProps) => {
   return (
-    <div>
-      <h2>{todo.title}</h2>
-      <p>{todo.description}</p>
-      <button type="button" onClick={() => deleteTodo(todo.id)}>
-        Delete
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          setToggleModal(true);
-          openEditModal(todo);
-        }}
-      >
-        Edit
-      </button>
+    <div className="d-flex justify-content-between">
+      <div className="w-25 custom-border">
+        {" "}
+        <h2>{todo.title}</h2>
+        <p>{todo.description}</p>
+      </div>
+      <div className="w-25 custom-border">
+        <button
+          className="btn btn-danger"
+          type="button"
+          onClick={() => deleteTodo(todo.id)}
+        >
+          Delete
+        </button>
+        <button
+          className="btn  btn-dark text-white"
+          type="button"
+          onClick={() => {
+            setToggleModal(true);
+            openEditModal(todo);
+          }}
+        >
+          Edit
+        </button>
+      </div>
     </div>
   );
 };

@@ -3,10 +3,14 @@ import { FormProps, Todo } from "../../interfaces/interfaces";
 import SingleTodo from "./SingleTodo";
 import EditTodoModal from "../UpdatedTodoModal/EditTodoModal";
 import { ToggleModal } from "../../types/types";
+import "./../../Resources/CSS/Takboard/taskBoared.css";
 
 const List = ({ allTodos, setAllTodos }: FormProps) => {
   const [toggleModal, setToggleModal] = useState<ToggleModal>(false);
-  const [editedTodo, setEditedTodo] = useState<Todo>({ title: "", description: "" });
+  const [editedTodo, setEditedTodo] = useState<Todo>({
+    title: "",
+    description: "",
+  });
 
   const deleteTodo = (id: number | undefined) => {
     console.log("id of todo", id);
@@ -26,7 +30,7 @@ const List = ({ allTodos, setAllTodos }: FormProps) => {
   };
 
   return (
-    <>
+    <div className="container task-display-board mt-3">
       {allTodos.map((todo: Todo) => (
         <SingleTodo
           allTodos={allTodos}
@@ -45,11 +49,11 @@ const List = ({ allTodos, setAllTodos }: FormProps) => {
           setToggleModal={setToggleModal}
           setAllTodos={setAllTodos}
           allTodos={allTodos}
-          editedTodo={editedTodo}   
+          editedTodo={editedTodo}
           setEditedTodo={setEditedTodo}
         />
       ) : null}
-    </>
+    </div>
   );
 };
 
