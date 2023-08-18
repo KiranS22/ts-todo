@@ -1,6 +1,6 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { FormProps, Todo } from "../../interfaces/interfaces";
+import "./../../Resources/CSS/Form/Form.css";
 
 const Form = ({ allTodos, setAllTodos }: FormProps) => {
   const [todo, setTodo] = useState<Todo>({ title: "", description: "" });
@@ -20,46 +20,47 @@ const Form = ({ allTodos, setAllTodos }: FormProps) => {
   };
 
   return (
-    <div className="d-flex mt-4 custom-border justify-content-between align-items-center">
-      <form onSubmit={submitTodo} className="d-flex">
-        <label htmlFor="task-title" className="me-2">
-          Task Title:
-        </label>
-        <input
-          id="task-title"
-          className="me-4 rounded"
-          type="text"
-          placeholder="Title"
-          value={todo.title}
-          required
-          onChange={(e: React.SyntheticEvent) =>
-            setTodo({ ...todo, title: (e.target as HTMLInputElement).value })
-          }
-        />
-        <label htmlFor="task-description" className="me-2">
-          Task Description:
-        </label>
-        <input
-          id="task-description"
-          type="text"
-          className="me-4 rounded"
-          placeholder="Description"
-          value={todo.description}
-          onChange={(e: React.SyntheticEvent) =>
-            setTodo({
-              ...todo,
-              description: (e.target as HTMLInputElement).value,
-            })
-          }
-        />
-
-        <button type="submit" className="me-4 btn btn-info text-white">
-          {" "}
+    <div className="form-container d-flex flex-column align-items-center mt-4">
+      <form onSubmit={submitTodo} className="task-form">
+        <div className="form-group">
+          <label htmlFor="task-title">Task Title:</label>
+          <input
+            id="task-title"
+            className="form-control task-imp"
+            type="text"
+            placeholder="Title"
+            value={todo.title}
+            required
+            onChange={(e: React.SyntheticEvent) =>
+              setTodo({ ...todo, title: (e.target as HTMLInputElement).value })
+            }
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="task-description">Task Description:</label>
+          <textarea
+            id="task-description"
+            className="form-control"
+            placeholder="Description"
+            value={todo.description}
+            onChange={(e) =>
+              setTodo({
+                ...todo,
+                description: e.target.value,
+              })
+            }
+          />
+        </div>
+        <button type="submit" className="btn btn-primary mt-3">
           Add Todo
         </button>
       </form>
 
-      <button className="btn btn-danger" onClick={deleteAllTasks}>
+      <button
+        type="button"
+        className="btn btn-danger mt-3"
+        onClick={deleteAllTasks}
+      >
         Delete All Tasks
       </button>
     </div>

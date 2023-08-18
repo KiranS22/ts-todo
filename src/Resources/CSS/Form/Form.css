@@ -1,1 +1,46 @@
+.form-container {
+  background-color: var(--main-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
 
+.task-form {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.task-imp {
+  border-radius: 25px;
+  padding: 8px 12px;
+  border: 2px solid #dddada;
+}
+
+label {
+  font-family: var(--label-font);
+  font-size: 13px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.task-form button[type="submit"] {
+  padding: 8px 12px;
+}
+
+.btn-primary {
+  background-color: var(--title-color);
+  border-color: var(--title-color);
+}
+
+.btn-primary:hover {
+  background-color: rgb(8, 73, 96);
+  border-color: rgb(8, 73, 96);
+}
+
+.btn-danger {
+  width: 100%;
+  max-width: 150px;
+}

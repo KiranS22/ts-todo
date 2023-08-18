@@ -1,11 +1,12 @@
 /* Font Imports */
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
 
 /* Globals */
 :root {
   --main-bg: #d3d3d3;
   --title-color: #0592ef;
-  --title-font: font-family: 'Oswald', sans-serif;
+  --title-font: "Oswald", sans-serif;
+  --label-font: Georgia, "Times New Roman", Times, serif;
 }
 
 * {
@@ -31,3 +32,7 @@ body {
 .custom-border {
   border: 2px solid red;
 }
+
+/* add todo form  */
+
+
