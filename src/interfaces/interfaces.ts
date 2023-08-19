@@ -23,10 +23,17 @@ export interface SingleTodoProps {
 
 export interface EditModalProps {
   closeModal: () => void;
+  submitEditedTodo: (e: React.SyntheticEvent,  id: number | undefined) => void
   setToggleModal: React.Dispatch<React.SetStateAction<ToggleModal>>;
-  setAllTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
-  allTodos: Todo[];
   editedTodo: Todo;
-  setEditedTodo:React.Dispatch<React.SetStateAction<Todo>>
+  setEditedTodo: React.Dispatch<React.SetStateAction<Todo>>;
+  toggleModal: ToggleModal;
+}
 
+export interface ListProps {
+  allTodos: Todo[];
+  setAllTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  setToggleModal: React.Dispatch<React.SetStateAction<ToggleModal>>;
+  toggleModal: ToggleModal;
+  openEditModal: (todo: Todo) => void;
 }

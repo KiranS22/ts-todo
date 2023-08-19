@@ -4,20 +4,16 @@ import { SingleTodoProps } from "../../interfaces/interfaces";
 const SingleTodo = ({
   todo,
   deleteTodo,
-  allTodos,
-  toggleModal,
-  setToggleModal,
-  setAllTodos,
   openEditModal,
+  setToggleModal,
 }: SingleTodoProps) => {
   return (
-    <div className="d-flex justify-content-between">
-      <div className="w-25">
-        {" "}
+    <div className="d-flex justify-content-between todo-container">
+      <div className="w-25 px-4">
         <h4 className="todo-title">{todo.title}</h4>
         <p className="todo-desc">{todo.description}</p>
       </div>
-      <div className="task-card-button-container  px-4">
+      <div className="task-card-button-container px-4">
         <button
           className="btn btn-danger"
           type="button"
@@ -26,7 +22,7 @@ const SingleTodo = ({
           Delete
         </button>
         <button
-          className="btn  btn-dark text-white"
+          className="btn btn-dark text-white"
           type="button"
           onClick={() => {
             setToggleModal(true);
