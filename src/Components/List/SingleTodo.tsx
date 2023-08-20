@@ -8,14 +8,14 @@ const SingleTodo = ({
   setToggleModal,
 }: SingleTodoProps) => {
   return (
-    <div className="d-flex justify-content-between todo-container">
-      <div className="w-25 px-4">
+    <div className="d-flex flex-column flex-sm-row justify-content-between todo-container mb-3">
+      <div className="mb-2 mb-sm-0">
         <h4 className="todo-title">{todo.title}</h4>
         <p className="todo-desc">{todo.description}</p>
       </div>
-      <div className="task-card-button-container px-4">
+      <div className="d-flex align-items-center">
         <button
-          className="btn btn-danger"
+          className="btn btn-danger me-2"
           type="button"
           onClick={() => deleteTodo(todo.id)}
         >

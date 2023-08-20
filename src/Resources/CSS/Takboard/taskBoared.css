@@ -3,8 +3,9 @@
   background-color: #ffffff79;
   padding: 8px 4px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  height: 20vh;
+ 
 }
+
 .task-card-button-container button {
   margin: 8px 16px;
 }
