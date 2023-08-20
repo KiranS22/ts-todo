@@ -1,16 +1,21 @@
+import React from "react";
 import { EditModalProps } from "../../interfaces/interfaces";
 
 const EditTodoModal = ({
   closeModal,
-  toggleModal,
-  setToggleModal,
+  submitEditedTodo,
   editedTodo,
   setEditedTodo,
-  submitEditedTodo,
+  toggleModal,
+  setToggleModal,
 }: EditModalProps) => {
   return (
-    <div className={`modal ${toggleModal ? "fade show" : ""}`} tabIndex={-1}>
-      <div className="modal-dialog modal-dialog-centered modal-fullscreen">
+    <div
+      className={`modal fade ${toggleModal ? "show" : ""}`}
+      tabIndex={-1}
+      style={{ display: toggleModal ? "block" : "none" }}
+    >
+      <div className="modal-dialog modal-dialog-center">
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title">Edit Todo</h5>
@@ -19,49 +24,49 @@ const EditTodoModal = ({
               className="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
-              onClick={() => {
-                setToggleModal(false);
-                closeModal();
-              }}
+              onClick={() => closeModal()}
             ></button>
           </div>
           <div className="modal-body">
-            <div>
-              <input
-                className="form-control my-3"
-                type="text"
-                name="title"
-                value={editedTodo.title}
-                onChange={(e) =>
-                  setEditedTodo({
-                    ...editedTodo,
-                    title: e.target.value,
-                  })
-                }
-              />
-              <input
-                className="form-control"
-                type="text"
-                name="description"
-                value={editedTodo.description}
-                onChange={(e) =>
-                  setEditedTodo({
-                    ...editedTodo,
-                    description: e.target.value,
-                  })
-                }
-              />
-            </div>
+            <form>
+              <div className="mb-3">
+                <label htmlFor="title" className="form-label">
+                  Title
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="title"
+                  value={editedTodo.title}
+                  onChange={(e) =>
+                    setEditedTodo({ ...editedTodo, title: e.target.value })
+                  }
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="description" className="form-label">
+                  Description
+                </label>
+                <textarea
+                  className="form-control"
+                  id="description"
+                  value={editedTodo.description}
+                  onChange={(e) =>
+                    setEditedTodo({
+                      ...editedTodo,
+                      description: e.target.value,
+                    })
+                  }
+                ></textarea>
+              </div>
+            </form>
           </div>
           <div className="modal-footer">
             <button
               type="button"
               className="btn btn-secondary"
               data-bs-dismiss="modal"
-              onClick={() => {
-                setToggleModal(false);
-                closeModal();
-              }}
+              onClick={() => closeModal()}
             >
               Close
             </button>

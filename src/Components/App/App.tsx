@@ -15,7 +15,6 @@ function App() {
   const [allTodos, setAllTodos] = useState<Todo[]>([]); // Initialize your todo list here
 
   const openEditModal = (todo: Todo): void => {
-    console.log(toggleModal);
 
     setToggleModal(true);
     setEditedTodo({ ...todo });
@@ -57,16 +56,16 @@ function App() {
     <>
       <h1 className="main-title"> ChoreChecker</h1>
       <div>
-        {toggleModal ? (
-          <EditTodoModal
-            toggleModal={toggleModal}
-            closeModal={closeEditModal}
-            editedTodo={editedTodo}
-            setEditedTodo={setEditedTodo}
-            submitEditedTodo={(e) => submitEditedTodo(e, editedTodo.id)} // Pass the id here
-            setToggleModal={setToggleModal}
-          />
-        ) : null}
+      {toggleModal ? (
+  <EditTodoModal
+    closeModal={closeEditModal}
+    submitEditedTodo={(e) => submitEditedTodo(e, editedTodo.id)}
+    editedTodo={editedTodo}
+    setEditedTodo={setEditedTodo}
+    toggleModal={toggleModal}
+    setToggleModal={setToggleModal}
+  />
+) : null}
         <Form allTodos={allTodos} setAllTodos={setAllTodos} />
         <List
           allTodos={allTodos}
