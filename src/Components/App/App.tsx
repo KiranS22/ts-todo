@@ -47,7 +47,7 @@ function App() {
     let localTodos: parseType = localStorage.getItem("todos");
     if (localTodos) {
       setAllTodos(JSON.parse(localTodos as string)); // The as keyword is how we Typecast in TypeScript
-      console.log("First useEffect Runnng ");
+  
     }
   }, []);
 

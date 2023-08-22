@@ -1,5 +1,6 @@
 import React from "react";
-import { EditModalProps } from "../../interfaces/interfaces";
+import { EditModalProps } from "interfaces/interfaces";
+import "./../../Resources/CSS/Modal/Modal.css";
 
 const EditTodoModal = ({
   closeModal,
@@ -27,15 +28,15 @@ const EditTodoModal = ({
                 onClick={() => closeModal()}
               ></button>
             </div>
-            <div className="modal-body">
-              <form className="fprm-group text-center">
+            <div className="modal-body d-flex justify-content-center">
+              <form className="form-group text-center custom-form">
                 <div className="mb-3">
                   <label htmlFor="title" className="form-label">
                     Title
                   </label>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control custom-input"
                     id="title"
                     value={editedTodo.title}
                     onChange={(e) =>
@@ -48,7 +49,7 @@ const EditTodoModal = ({
                     Description
                   </label>
                   <textarea
-                    className="form-control"
+                    className="form-control custom-input"
                     id="description"
                     value={editedTodo.description}
                     onChange={(e) =>
@@ -61,6 +62,7 @@ const EditTodoModal = ({
                 </div>
               </form>
             </div>
+
             <div className="modal-footer">
               <button
                 type="button"

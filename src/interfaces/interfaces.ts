@@ -1,4 +1,4 @@
-import { ToggleModal } from "../types/types";
+import { ToggleModal } from "types/types";
 
 export interface Todo {
   id?: number;
@@ -23,7 +23,7 @@ export interface SingleTodoProps {
 
 export interface EditModalProps {
   closeModal: () => void;
-  submitEditedTodo: (e: React.SyntheticEvent,  id: number | undefined) => void
+  submitEditedTodo: (e: React.SyntheticEvent, id: number | undefined) => void;
   setToggleModal: React.Dispatch<React.SetStateAction<ToggleModal>>;
   editedTodo: Todo;
   setEditedTodo: React.Dispatch<React.SetStateAction<Todo>>;
